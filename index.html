@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wednesday Park People</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito', sans-serif; background: #FAFAF7; color: #2A2A20; line-height: 1.6; }
+
+.hero { background: #2D5016; color: white; text-align: center; padding: 3rem 1.5rem 2.5rem; }
+.hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; margin-bottom: 0.5rem; }
+.hero-title { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; line-height: 1.1; margin-bottom: 0.75rem; }
+.hero-sub { font-size: 1rem; opacity: 0.85; max-width: 480px; margin: 0 auto 1.5rem; font-style: italic; }
+.hero-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem 1.5rem; font-size: 0.88rem; opacity: 0.9; }
+
+.container { max-width: 720px; margin: 0 auto; padding: 0 1.25rem; }
+section { padding: 2.25rem 0; border-bottom: 1px solid #E5E3DC; }
+section:last-of-type { border-bottom: none; }
+.section-label { font-size: 0.68rem; letter-spacing: 0.13em; text-transform: uppercase; color: #999; margin-bottom: 1rem; font-weight: 700; }
+
+.event-card { display: flex; align-items: stretch; border: 1px solid #E5E3DC; border-radius: 12px; overflow: hidden; background: white; margin-bottom: 8px; }
+.ev-date { min-width: 70px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 8px; flex-shrink: 0; }
+.ev-day { font-size: 1.45rem; font-weight: 700; line-height: 1; }
+.ev-mo { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3px; opacity: 0.8; }
+.ev-body { padding: 12px 16px; flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+.ev-theme { font-size: 0.97rem; font-weight: 700; }
+.ev-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag { font-size: 0.68rem; padding: 2px 9px; border-radius: 20px; border: 1px solid; font-weight: 600; }
+.tag-neutral { font-size: 0.68rem; padding: 2px 9px; border-radius: 20px; border: 1px solid #DDD; background: #F5F5F0; color: #555; font-weight: 600; }
+
+.join-box { background: white; border: 1px solid #E5E3DC; border-radius: 12px; padding: 1.5rem; text-align: center; }
+.join-title { font-family: 'Fraunces', serif; font-size: 1.2rem; margin-bottom: 0.4rem; }
+.join-desc { font-size: 0.88rem; color: #666; margin-bottom: 1.25rem; max-width: 420px; margin-left: auto; margin-right: auto; }
+.btn { display: inline-block; background: #2D5016; color: white; text-decoration: none; padding: 0.65rem 1.5rem; border-radius: 8px; font-weight: 700; font-size: 0.88rem; }
+.btn:hover { background: #3D6A1F; }
+
+.bring-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 480px) { .bring-grid { grid-template-columns: 1fr; } }
+.bring-card { background: white; border: 1px solid #E5E3DC; border-radius: 12px; padding: 1rem 1.25rem; }
+.bring-card h3 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: #999; margin-bottom: 0.6rem; }
+.bring-card ul { list-style: none; font-size: 0.86rem; color: #444; line-height: 1.75; }
+.bring-card ul li::before { content: "→ "; color: #2D5016; font-weight: 700; }
+.bring-note { font-size: 0.78rem; color: #999; margin-top: 0.75rem; font-style: italic; }
+
+.rsvp-box { background: #F0F5EB; border-radius: 12px; padding: 1.5rem; }
+.rsvp-box h3 { font-family: 'Fraunces', serif; font-size: 1.15rem; margin-bottom: 0.4rem; }
+.rsvp-box p { font-size: 0.87rem; color: #555; margin-bottom: 1rem; line-height: 1.6; }
+
+.rain-box { background: #EEF4FF; border-left: 3px solid #5A8FD6; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; font-size: 0.88rem; color: #333; line-height: 1.6; }
+.rain-label { font-weight: 700; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: #5A8FD6; display: block; margin-bottom: 4px; }
+
+footer { text-align: center; padding: 2rem 1.25rem 2.5rem; font-size: 0.78rem; color: #AAA; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">Westminster, Colorado</div>
+  <h1 class="hero-title">Wednesday Park People</h1>
+  <p class="hero-sub">A summer potluck series for neighbors, friends, and anyone connected to this corner of Westminster.</p>
+  <div class="hero-meta">
+    <span>Westbrook Park</span>
+    <span>Every other Wednesday</span>
+    <span>5:30 to 8pm</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <section>
+    <div class="section-label">Stay in the loop</div>
+    <div class="join-box">
+      <div class="join-title">Join the group chat</div>
+      <p class="join-desc">All updates, rain calls, and day-of info go through our GroupMe. No app download required — works by text message.</p>
+      <a href="GROUPME_LINK_HERE" class="btn">Join Wednesday Park People on GroupMe</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">The schedule</div>
+
+    <div class="event-card">
+      <div class="ev-date" style="background:#E1F5EE;">
+        <div class="ev-day" style="color:#085041;">3</div>
+        <div class="ev-mo" style="color:#085041;">Jun</div>
+      </div>
+      <div class="ev-body">
+        <div class="ev-theme">Tutu Wednesday</div>
+        <div class="ev-tags">
+          <span class="tag" style="background:#E1F5EE;color:#085041;border-color:#5DCAA5;">Wear a tutu or any sparkly addition</span>
+          <span class="tag-neutral">Silly relay race</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="ev-date" style="background:#E6F1FB;">
+        <div class="ev-day" style="color:#0C447C;">17</div>
+        <div class="ev-mo" style="color:#0C447C;">Jun</div>
+      </div>
+      <div class="ev-body">
+        <div class="ev-theme">Superhero day</div>
+        <div class="ev-tags">
+          <span class="tag" style="background:#E6F1FB;color:#0C447C;border-color:#85B7EB;">Cape, mask, or hero-inspired look</span>
+          <span class="tag-neutral">Superhero obstacle course</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="ev-date" style="background:#FAECE7;">
+        <div class="ev-day" style="color:#712B13;">1</div>
+        <div class="ev-mo" style="color:#712B13;">Jul</div>
+      </div>
+      <div class="ev-body">
+        <div class="ev-theme">Red, white &amp; blue</div>
+        <div class="ev-tags">
+          <span class="tag" style="background:#FAECE7;color:#712B13;border-color:#F0997B;">Patriotic anything</span>
+          <span class="tag-neutral">Water balloon toss</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="ev-date" style="background:#EAF3DE;">
+        <div class="ev-day" style="color:#27500A;">15</div>
+        <div class="ev-mo" style="color:#27500A;">Jul</div>
+      </div>
+      <div class="ev-body">
+        <div class="ev-theme">Nature heroes</div>
+        <div class="ev-tags">
+          <span class="tag" style="background:#EAF3DE;color:#27500A;border-color:#97C459;">Dress as your favorite creature</span>
+          <span class="tag-neutral">Stream cleanup — gloves provided!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="ev-date" style="background:#FAEEDA;">
+        <div class="ev-day" style="color:#633806;">29</div>
+        <div class="ev-mo" style="color:#633806;">Jul</div>
+      </div>
+      <div class="ev-body">
+        <div class="ev-theme">Luau / aloha day</div>
+        <div class="ev-tags">
+          <span class="tag" style="background:#FAEEDA;color:#633806;border-color:#EF9F27;">Hawaiian shirt, lei, tropical anything</span>
+          <span class="tag-neutral">Hula hoop challenge</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="ev-date" style="background:#EEEDFE;">
+        <div class="ev-day" style="color:#3C3489;">12</div>
+        <div class="ev-mo" style="color:#3C3489;">Aug</div>
+      </div>
+      <div class="ev-body">
+        <div class="ev-theme">Glow night</div>
+        <div class="ev-tags">
+          <span class="tag" style="background:#EEEDFE;color:#3C3489;border-color:#AFA9EC;">Neon colors, glow accessories</span>
+          <span class="tag-neutral">Flashlight tag</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="ev-date" style="background:#FBEAF0;">
+        <div class="ev-day" style="color:#72243E;">26</div>
+        <div class="ev-mo" style="color:#72243E;">Aug</div>
+      </div>
+      <div class="ev-body">
+        <div class="ev-theme">Pajama party</div>
+        <div class="ev-tags">
+          <span class="tag" style="background:#FBEAF0;color:#72243E;border-color:#ED93B1;">PJs, robe, fuzzy slippers</span>
+          <span class="tag-neutral">Kick the can</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="section-label">What to bring</div>
+    <div class="bring-grid">
+      <div class="bring-card">
+        <h3>Everyone brings</h3>
+        <ul>
+          <li>A potluck dish for 6-8 people</li>
+          <li>Camp chairs or a blanket</li>
+          <li>Plates and utensils for your crew</li>
+          <li>Drinks for your family</li>
+        </ul>
+        <p class="bring-note">Costumes are encouraged and never required. Kids and dogs welcome.</p>
+      </div>
+      <div class="bring-card">
+        <h3>Annie brings every time</h3>
+        <ul>
+          <li>Costco pizza as an anchor</li>
+          <li>Guacamole and chips (vegan-friendly)</li>
+          <li>Gloves for stream cleanup on Jul 15</li>
+        </ul>
+        <p class="bring-note">Come to one, come to all seven, or anything in between. Summer is busy and partial attendance is the whole point.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">RSVP</div>
+    <div class="rsvp-box">
+      <h3>Let us know you are coming</h3>
+      <p>RSVPs are appreciated, not required. It helps to know roughly how many to expect. No pressure — just click through and check the dates that work for you.</p>
+      <a href="GOOGLE_FORM_LINK_HERE" class="btn">RSVP here</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Rain</div>
+    <div class="rain-box">
+      <span class="rain-label">Weather policy</span>
+      Westbrook Park has a covered pavilion, so we will weather most afternoon storms. If conditions call for a cancellation, we will post in the GroupMe by 4pm. When in doubt, check there before heading out.
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  Wednesday Park People &nbsp;&middot;&nbsp; Westminster, CO &nbsp;&middot;&nbsp; Questions? Contact Annie at [your contact info]
+</footer>
+
+</body>
+</html>
